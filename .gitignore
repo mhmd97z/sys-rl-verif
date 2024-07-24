@@ -1,3 +1,2 @@
 vnncomp2023_benchmarks/
-applications/cmars/vnnlib/plain_comparative/*/*.compiled
-applications/pensieve/vnnlib/*.compiled
+applications/*.compiled
