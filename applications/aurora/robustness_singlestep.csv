@@ -1,0 +1,6 @@
+vnnlib/robustness/difficulty1_eps001_a_less_b_singlestep.vnnlib
+vnnlib/robustness/difficulty1_eps001_b_less_a_singlestep.vnnlib
+vnnlib/robustness/difficulty2_eps001_a_less_b_singlestep.vnnlib
+vnnlib/robustness/difficulty2_eps001_b_less_a_singlestep.vnnlib
+vnnlib/robustness/difficulty3_eps001_a_less_b_singlestep.vnnlib
+vnnlib/robustness/difficulty3_eps001_b_less_a_singlestep.vnnlib
