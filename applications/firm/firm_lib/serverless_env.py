@@ -1,6 +1,6 @@
 import pandas as pd
 import random
-from util import *
+from firm_lib.util import *
 
 
 class SimEnvironment:

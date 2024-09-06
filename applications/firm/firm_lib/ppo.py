@@ -4,7 +4,7 @@ import psutil
 import torch
 from torch import nn
 import matplotlib.pyplot as plt
-from util import *
+from firm_lib.util import *
 
 
 class ActorNetwork(nn.Module):
