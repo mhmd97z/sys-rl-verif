@@ -26,15 +26,21 @@ class Actor(nn.Module):
         self.pi_head = nn.Linear(FEATURE_NUM, action_dim)
 
     def forward(self, inputs):
-        inputs = inputs.reshape((-1, 6, 8))
-        split_0 = F.relu(self.fc1_actor(inputs[:, 0:1, 7:8])).view(-1, FEATURE_NUM)
-        split_1 = F.relu(self.fc2_actor(inputs[:, 1:2, 7:8])).view(-1, FEATURE_NUM)
-        split_2 = F.relu(self.conv1_actor(inputs[:, 2:3, :]).view(-1, FEATURE_NUM))
-        split_3 = F.relu(self.conv2_actor(inputs[:, 3:4, :]).view(-1, FEATURE_NUM))
-        split_4 = F.relu(self.conv3_actor(inputs[:, 4:5, :self.a_dim]).view(-1, FEATURE_NUM))
-        split_5 = F.relu(self.fc3_actor(inputs[:, 5:6, 7:8])).view(-1, FEATURE_NUM)
-        
-        merge_net = torch.cat([split_0, split_1, split_2, split_3, split_4, split_5], 1)
+        # inputs = inputs.reshape((-1, 6, 8))
+        # split_0 = F.relu(self.fc1_actor(inputs[:, 0:1, 7:8])).view(-1, FEATURE_NUM)
+        # split_1 = F.relu(self.fc2_actor(inputs[:, 1:2, 7:8])).view(-1, FEATURE_NUM)
+        # split_2 = F.relu(self.conv1_actor(inputs[:, 2:3, :]).view(-1, FEATURE_NUM))
+        # split_3 = F.relu(self.conv2_actor(inputs[:, 3:4, :]).view(-1, FEATURE_NUM))
+        # split_4 = F.relu(self.conv3_actor(inputs[:, 4:5, :self.a_dim]).view(-1, FEATURE_NUM))
+        # split_5 = F.relu(self.fc3_actor(inputs[:, 5:6, 7:8])).view(-1, FEATURE_NUM)
+        split_0 = F.relu(self.fc1_actor(inputs[:, :, 7:8]))
+        split_1 = F.relu(self.fc2_actor(inputs[:, :, 15:16]))
+        split_2 = F.relu(self.conv1_actor(inputs[:, :, 16:24]))
+        split_3 = F.relu(self.conv2_actor(inputs[:, :, 24:32]))
+        split_4 = F.relu(self.conv3_actor(inputs[:, :, 32:38]))
+        split_5 = F.relu(self.fc3_actor(inputs[:, :, 47:48]))
+
+        merge_net = torch.cat([split_0, split_1, split_2, split_3, split_4, split_5], 2)
 
         pi_net = F.relu(self.fc4_actor(merge_net))
         self.pi_head(pi_net)
