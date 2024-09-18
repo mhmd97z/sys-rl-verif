@@ -18,6 +18,7 @@
 (declare-const X_16 Real)
 (declare-const X_17 Real)
 (declare-const Y_0 Real)
+(declare-const Y_1 Real)
  
 ; input constraints
 (assert (>= X_0 -0.1))
