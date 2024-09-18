@@ -53,9 +53,10 @@
 (assert (>= X_15 0))
 (assert (<= X_15 0))
 (assert (>= X_16 0))
-(assert (<= X_16 0))
+(assert (<= X_16 0.01))
 (assert (>= X_17 0))
-(assert (<= X_17 0.001))
+(assert (<= X_17 0))
  
 ; output constraints
-(assert (<= 0.5 Y_0))
+(assert (>= Y_0 0.25))
+(assert (<= Y_1 -0.25))
